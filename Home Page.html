@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        main {
+            padding: 75px;
+        }
+
+        .explore-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            border: 1px solid black;
+            color: white;
+        }
+
+        #eventsContainer {
+            padding-bottom: 100px;
+        }
+
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .mt-4 {
+            margin-top: 4.95rem !important;
+        }
+
+        .category {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .icon-circle img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; 
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top">
+
+        <a class="navbar-brand" href="Home Page.html">
+            <img src="image/logo.png" alt="Logo" height="50" width="150">
+        </a>
+        <div class="collapse navbar-collapse d-flex justify-content-center">
+            <input class="form-control w-50" type="search" placeholder="Search events in your city..."
+                aria-label="Search">
+        </div>
+        <div class="d-flex">
+            <a href="Create Event.html"> <button class="btn btn-outline-primary me-2">Create Event</button></a>
+            <a href="Login Page.html"><img src="image/profile.jpg" alt="Profile" width="40" class="rounded-circle"></a>
+        </div>
+    </nav>
+
+    <div class="main">
+
+        <div id="eventCarousel" class="carousel slide mx-auto mt-4" data-bs-ride="carousel" style="max-width: 80%;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true"></button>
+                <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="image/slid1.jpg" class="d-block w-100 rounded" style="height: 500px; object-fit: cover;">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="image/slid2.jpg" class="d-block w-100 rounded" style="height: 500px; object-fit: cover;">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="image/slid3.jpg" class="d-block w-100 rounded" style="height: 500px; object-fit: cover;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
+            </button>
+        </div>
+
+        <div class="explore-section">
+            <h2 class="mb-4">Explore Events</h2>
+            <p class="text-muted">Find the best events happening around you. Select a category to filter the events
+                below.
+            </p>
+
+            <div class="container text-center mt-5">
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+                    <div class="category">
+                        <div class="icon-circle  filter-btn active"  data-filter="all">
+                            <img src="image/iconall.png" alt="ALL">
+                        </div>
+                        <p>ALL</p>
+                    </div>
+                    <div class="category">
+                        <div class="icon-circle filter-btn" data-filter="Hackathon">
+                            <img src="image/iconhack.png" alt="hack">
+                        </div>
+                        <p>Hackathon</p>
+                    </div>
+                    <div class="category">
+                        <div class="icon-circle filter-btn" data-filter="Cultural">
+                            <img src="image/iconcult.png" alt="cult">
+                        </div>
+                        <p>Cultural</p>
+                    </div>
+                    <div class="category">
+                        <div class="icon-circle filter-btn" data-filter="Food">
+                            <img src="image/iconfood.png" alt="Food">
+                        </div>
+                        <p>Food</p>
+                    </div>
+                    <div class="category">
+                        <div class="icon-circle filter-btn" data-filter="Expo">
+                            <img src="image/iconexpo.png" alt="Expo">
+                        </div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="category">
+                        <div class="icon-circle filter-btn" data-filter="Games">
+                            <img src="image/icongame.png" alt="Game">
+                        </div>
+                        <p>Games</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mt-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="eventsContainer">
+           
+                
+                    <div class="col event-card" data-category="Hackathon">
+                        
+                        <div class="card card-hover border-0 shadow-sm">
+                            <a href="event1 Page.html" style="text-decoration: none; color: inherit;">
+                             <img src="image/1.png" class="card-img-top" alt="Voice Over Event">
+                            <div class="card-body">
+                                <h6 class="card-title">Hackathon</h6>
+                                <p class="text-muted">Fri, Feb 28 • 5:00 AM GMT+5:30</p>
+                                <p class="text-muted">BMS College Basavanagudi</p>
+                                <h6 class="fw-bold">From Rs.150 </h6>
+                                <p class="text-muted"><i class="fas fa-users"></i> 7.2k followers</p>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+               
+
+                <div class="col event-card" data-category="Hackathon">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/2.jpeg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Smart India Hackathon</h6>
+                            <p class="text-muted">Sat, Mar 10 • 6:00 PM GMT+5:30</p>
+                            <p class="text-muted">DSCE PC Sagar Auditorum</p>
+                            <h6 class="fw-bold">From Rs.200.00
+
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 5.5k followers</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col event-card" data-category="Hackathon">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/3.png" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Science Hackathon</h6>
+                            <p class="text-muted">Mon, Apr 15 • 7:30 AM GMT+5:30</p>
+                            <p class="text-muted">RV College</p>
+                            <h6 class="fw-bold">From Rs.100.00
+
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 6.8k followers</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col event-card" data-category="Hackathon">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/4.png" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Ai Hackathon</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">From Rs.180.00 </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+           
+                <div class="col event-card" data-category="Cultural">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/5.jpeg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Cultural Fest</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">From Rs.180.00
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="col event-card" data-category="Cultural">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/6.jpg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Cutural Events</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">From Rs.250.00
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col event-card" data-category="Food">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/7.jpeg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Food Fest</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">Free Entry
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col event-card" data-category="Food">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/8.jpeg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Food Festival</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">Free Entry
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col event-card" data-category="Expo">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/9.jpg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Photography Expo</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">From Rs.180.00
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col event-card" data-category="Expo">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/10.jpeg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Poetry Expo</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">From Rs.180.00
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col event-card" data-category="Expo">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/11.jpg" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Fastion Expo</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">From Rs.500.00</h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col event-card" data-category="Games">
+                    <div class="card card-hover border-0 shadow-sm">
+                        <img src="image/12.png" class="card-img-top" alt="Voice Over Event">
+                        <div class="card-body">
+                            <h6 class="card-title">Game On</h6>
+                            <p class="text-muted">Wed, May 20 • 8:00 PM GMT+5:30</p>
+                            <h6 class="fw-bold">From Rs.150.00
+                            </h6>
+                            <p class="text-muted"><i class="fas fa-users"></i> 4.9k followers</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col event-card" data-category="workshop in-person">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+            
+                <div class="col-md-4">
+                    <h5>Use EventHub</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Create Events</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Event Marketing</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Mobile Ticket App</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Check-In App</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQs</a></li>
+                    </ul>
+                </div>
+
+           
+                <div class="col-md-4">
+                    <h5>Plan Events</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Sell Tickets Online</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Event Planning</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Event Payment System</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Virtual Events</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Post Your Event</a></li>
+                    </ul>
+                </div>
+
+         
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Contact Support</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Contact Sales</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Facebook</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Instagram</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">LinkedIn</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+
+      
+            <div class="text-center mt-4">
+                <small>&copy; 2025 EventHub • <a href="#" class="text-light text-decoration-none">Terms</a> •
+                    <a href="#" class="text-light text-decoration-none">Privacy</a> •
+                    <a href="#" class="text-light text-decoration-none">Accessibility</a> •
+                    <a href="#" class="text-light text-decoration-none">Cookies</a></small>
+            </div>
+        </div>
+    </footer>
+
+   
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                let filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.event-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                document.getElementById('eventsContainer').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
